@@ -26,26 +26,26 @@
                 <form class=" flex flex-col mt-10 ">
                     <div>
                         <label for="" class="text-amber-50 ml-26 ">Montant souhaie (DH)</label>
-                        <input class=" bg-amber-50 w-100 h-10 ml-25" type="number">
+                        <input id="mont" class=" bg-amber-50 w-100 h-10 ml-25" type="number" min="1000" max="100000">
                         <p class="text-[#D9D9D9] ml-26 ">(Entre 1 000 DH et 100 000 DH)</p>
                     </div>
                     <div class=" flex flex-col mt-10">
                         <label for="" class="text-amber-50 ml-26 ">Duree (mois)</label>
-                        <input class=" bg-amber-50 w-100 h-10 ml-26" type="number">
+                        <input id="mois" class=" bg-amber-50 w-100 h-10 ml-26" type="number" min="1" max="1000">
 
                     </div>
                     <div class=" flex flex-col mt-10">
                         <label for="" class="text-amber-50 ml-26 "> (Type de credit )</label>
-                        <select class=" bg-amber-50 w-100 h-10 ml-26 font-bold" type="text">
-                            <option value=" ">Maison</option>
-                            <option value="">Appartement</option>
-                            <option value="">Terrain</option>
-                            <option value="">Petite entreprise</option>
-                            <option value="">Prêt personnel (cash)</option>
+                        <select class=" bg-amber-50 w-100 h-10 ml-26 font-bold" type="text" id="type">
+                            <option value="m">Maison 4.5%</option>
+                            <option value="a">Appartement 5%</option>
+                            <option value="t">Terrain 6%</option>
+                            <option value="e">Petite entreprise 7%</option>
+                            <option value="p">Prêt personnel (cash) 8%</option>
                         </select>
                     </div>
                     <div class="  flex justify-center items-center ">
-                        <button type="button"
+                        <button onclick="nnfunc()" type="button"
                             class="bg-[#648E54] w-40 h-7 mt-7 rounded-2xl text-white font-bold hover:scale-[0.98] flex justify-center items-center"
                             id="a">continue</button>
                     </div>
@@ -63,28 +63,28 @@
 
                     <div class=" gap-3">
                         <label for="nom" class="text-amber-50 ml-26">Nom</label>
-                        <input id="nom" class=" bg-amber-50 w-100 h-10 ml-25" type="text">
+                        <input required id="nom" class=" bg-amber-50 w-100 h-10 ml-25" type="text">
                     </div>
 
                     <div class="">
                         <label for="prenom" class="text-amber-50 ml-26">Prenom</label>
-                        <input id="prenom" class=" bg-amber-50 w-100 h-10 ml-25" type="text">
+                        <input required id="prenom" class=" bg-amber-50 w-100 h-10 ml-25" type="text">
                     </div>
 
 
                     <div class="">
                         <label for="telephone" class="text-amber-50 ml-26">N° Telephone</label>
-                        <input id="telephone" class=" bg-amber-50 w-100 h-10 ml-25" type="tel">
+                        <input required id="telephone" class=" bg-amber-50 w-100 h-10 ml-25" type="tel">
                     </div>
 
                     <div class="flex flex-col">
                         <label for="email" class="text-amber-50 ml-26">E-mail</label>
-                        <input id="email" class=" bg-amber-50 w-100 h-10 ml-25" type="email">
+                        <input required id="email" class=" bg-amber-50 w-100 h-10 ml-25" type="email">
                     </div>
 
                     <div class="">
-                        <label for="salaire" class="text-amber-50 ml-26">Votre salaire mensuel</label>
-                        <input id="salaire" class=" bg-amber-50 w-100 h-10 ml-25" type="number">
+                        <label for="salaire" id="salair" class="text-amber-50 ml-26">Votre salaire mensuel</label>
+                        <input required id="salaire" class=" bg-amber-50 w-100 h-10 ml-25" type="number">
                     </div>
 
                     <div class="items-center justify-center flex">
@@ -100,9 +100,49 @@
     </div>
     </section>
     </div>
+    <!-- filicitation -->
+    <div class="hidden" id="filic">
+        <section class="flex items-center justify-center flex-col  ">
+            <div class=" bg-[rgba(100,142,84,0.5)] w-150 h-120  rounded-4xl mt-40">
+                <div class="justify-center items-center flex mt-3.5">
+                    <p class="flex justify-center items-center text-amber-50 w-100 text-2xl text-center  italic">🎉
+                        Félicitations ! <br>
 
-<section class="flex items-center justify-center flex-col  " > 
-    <section class="flex items-center justify-center flex-col  " > 
+                        Votre demande de crédit a été approuvée avec succès.  Vous remplissez toutes les conditions
+                        nécessaires, et votre dossier a été validé par notre équipe.
+                        Notre conseiller vous contactera prochainement pour finaliser les dernières étapes et procéder
+                        au versement des fonds.
+                        Merci d’avoir choisi GoMoney, votre partenaire de confiance.</p>
+                </div>
+                <!-- btn du facture -->
+                <div class="items-center justify-center flex">
+                    <button type="button"
+                        class="bg-[#648E54] w-80  h-8 mt-7 rounded-2xl text-white font-bold hover:scale-[0.98]  "
+                        id="c">>
+                        Relever votre facture
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- refuse -->
+    <div class="hidden" id="ref">
+        <section class="flex items-center justify-center flex-col  ">
+            <div class=" bg-[rgba(142,84,84,0.5)] w-150 h-100  rounded-4xl mt-40">
+                <div class="justify-center items-center flex mt-3.5">
+                    <p class="flex justify-center items-center text-amber-50 w-100 text-2xl text-center  italic">❌ Votre
+                        demande de crédit n’a pas été approuvée.
+
+                        Après analyse de votre dossier, certaines conditions requises n’ont pas été remplies.  Nous vous
+                        invitons à vérifier les informations fournies ou à réessayer ultérieurement avec un montant ou
+                        une durée différente.
+                        Notre équipe reste à votre disposition pour toute question ou assistance.
+                        Merci d’avoir choisi GoMoney.</p>
+                </div>
+
+            </div>
+        </section>
+    </div>
     <script src="main.js"></script>
 </body>
 

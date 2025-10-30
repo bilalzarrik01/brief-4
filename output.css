@@ -16,6 +16,8 @@
     --spacing: 0.25rem;
     --container-2xs: 18rem;
     --container-4xl: 56rem;
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
@@ -198,11 +200,17 @@
   .right-0 {
     right: calc(var(--spacing) * 0);
   }
+  .mt-2 {
+    margin-top: calc(var(--spacing) * 2);
+  }
   .mt-3 {
     margin-top: calc(var(--spacing) * 3);
   }
   .mt-3\.5 {
     margin-top: calc(var(--spacing) * 3.5);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
   }
   .mt-7 {
     margin-top: calc(var(--spacing) * 7);
@@ -221,6 +229,12 @@
   }
   .mt-90 {
     margin-top: calc(var(--spacing) * 90);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
   }
   .ml-25 {
     margin-left: calc(var(--spacing) * 25);
@@ -252,8 +266,17 @@
   .h-35 {
     height: calc(var(--spacing) * 35);
   }
+  .h-100 {
+    height: calc(var(--spacing) * 100);
+  }
   .h-110 {
     height: calc(var(--spacing) * 110);
+  }
+  .h-120 {
+    height: calc(var(--spacing) * 120);
+  }
+  .h-auto {
+    height: auto;
   }
   .w-1 {
     width: calc(var(--spacing) * 1);
@@ -309,6 +332,9 @@
   .resize {
     resize: both;
   }
+  .list-disc {
+    list-style-type: disc;
+  }
   .flex-col {
     flex-direction: column;
   }
@@ -332,6 +358,13 @@
   }
   .gap-3 {
     gap: calc(var(--spacing) * 3);
+  }
+  .space-y-1 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 1) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)));
+    }
   }
   .space-x-4 {
     :where(& > :not(:last-child)) {
@@ -372,6 +405,9 @@
   .bg-\[rgba\(0\,0\,0\,0\.7\)\] {
     background-color: rgba(0,0,0,0.7);
   }
+  .bg-\[rgba\(1\,142\,84\,0\.5\)\] {
+    background-color: rgba(1,142,84,0.5);
+  }
   .bg-\[rgba\(38\,40\,57\,0\.5\)\] {
     background-color: rgba(38,40,57,0.5);
   }
@@ -398,6 +434,15 @@
   }
   .bg-\[rgba\(100\,142\,84\,1\)\] {
     background-color: rgba(100,142,84,1);
+  }
+  .bg-\[rgba\(142\,84\,84\,0\.5\)\] {
+    background-color: rgba(142,84,84,0.5);
+  }
+  .bg-\[rgba\(142\,84\,84\,1\)\] {
+    background-color: rgba(142,84,84,1);
+  }
+  .bg-\[rgba\(142\,142\,84\,0\.5\)\] {
+    background-color: rgba(142,142,84,0.5);
   }
   .bg-amber-50 {
     background-color: var(--color-amber-50);
@@ -426,6 +471,9 @@
   .bg-no-repeat {
     background-repeat: no-repeat;
   }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
   }
@@ -437,6 +485,9 @@
   }
   .pl-5 {
     padding-left: calc(var(--spacing) * 5);
+  }
+  .pl-10 {
+    padding-left: calc(var(--spacing) * 10);
   }
   .text-center {
     text-align: center;
@@ -452,6 +503,10 @@
   .text-4xl {
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
   }
   .text-xl {
     font-size: var(--text-xl);
@@ -514,6 +569,11 @@
     }
   }
 }
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
 @property --tw-space-x-reverse {
   syntax: "*";
   inherits: false;
@@ -536,6 +596,7 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
       --tw-border-style: solid;
       --tw-font-weight: initial;
