@@ -7,14 +7,14 @@ function nnfunc() {
   const btn_facture = document.getElementById("c");
   const ref = document.getElementById("ref");
 
-  // --- Aller au formulaire d'informations ---
+  // --- formulaire d'informations ---
   btn_cont.addEventListener("click", (e) => {
     e.preventDefault();
     cal.style.display = "none";
     info.style.display = "block";
   });
 
-  // --- Calculer la simulation ---
+  // --- Calc la simulation ---
   btn_sum.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -30,7 +30,7 @@ function nnfunc() {
       return;
     }
 
-    // --- Déterminer le taux ---
+  
     let rate = 0;
     let typeNom = "";
     switch (type) {
@@ -55,7 +55,7 @@ function nnfunc() {
       info.style.display = "none";
       filic.style.display = "block";
 
-      // Injecter les résultats dans la page "félicitation"
+      // feli---
       filic.innerHTML = `
         <section class="flex items-center justify-center flex-col">
           <div class="bg-[rgba(100,142,84,0.5)] w-150 h-auto rounded-4xl mt-20 p-6 text-white text-lg">
