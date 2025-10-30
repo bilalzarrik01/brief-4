@@ -1,52 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIMULATION</title>
-     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="output.css">
 </head>
+
 <body class="bg-[url('j.png')] bg-no-repeat bg-cover">
-        <header>
+    <header>
         <h1 class="text-[#648E54] font-bold text-3xl pl-5 pt-4">GOMoney</h1>
         <nav class="absolute top-0 right-0 space-x-4.5 font-bold text-[#737171] text-2xl pr-5 pt-5">
-            <a  href="index.html">ACCEUIL</a>
+            <a href="index.html">ACCEUIL</a>
             <a class="text-[#648E54]" href="sum.html">SIMULATION</a>
             <a href="">CONTACT US</a>
         </nav>
     </header>
-    <section class="flex items-center justify-center flex-col ">
-        <h1 class="text-3xl mt-20 font-bold text-amber-50">Simulateur de crédit</h1>
-        <p class="text-[#B5B5B5]">Remplissez le formulaire ci-dessous pour obtenir une estimation personnalisée</p>
-        <div class=" bg-[rgba(0,0,0,0.7)] w-150 h-110 ">
-        <form class=" flex flex-col mt-10 ">
-            <div >
-            <label  for="" class="text-amber-50 ml-26 ">Montant souhaie (DH)</label>
-            <input class=" bg-amber-50 w-100 h-10 ml-25" type="number">
-            <p class="text-[#D9D9D9] ml-26 ">(Entre 1 000 DH et 100 000 DH)</p>
+    <div id="cal">
+        <section class="flex items-center justify-center flex-col  ">
+            <h1 class="text-3xl mt-20 font-bold text-amber-50">Simulateur de crédit</h1>
+            <p class="text-[#B5B5B5]">Remplissez le formulaire ci-dessous pour obtenir une estimation personnalisée</p>
+            <div class=" bg-[rgba(0,0,0,0.7)] w-150 h-110 ">
+                <form class=" flex flex-col mt-10 ">
+                    <div>
+                        <label for="" class="text-amber-50 ml-26 ">Montant souhaie (DH)</label>
+                        <input class=" bg-amber-50 w-100 h-10 ml-25" type="number">
+                        <p class="text-[#D9D9D9] ml-26 ">(Entre 1 000 DH et 100 000 DH)</p>
+                    </div>
+                    <div class=" flex flex-col mt-10">
+                        <label for="" class="text-amber-50 ml-26 ">Duree (mois)</label>
+                        <input class=" bg-amber-50 w-100 h-10 ml-26" type="number">
+
+                    </div>
+                    <div class=" flex flex-col mt-10">
+                        <label for="" class="text-amber-50 ml-26 "> (Type de credit )</label>
+                        <select class=" bg-amber-50 w-100 h-10 ml-26 font-bold" type="text">
+                            <option value=" ">Maison</option>
+                            <option value="">Appartement</option>
+                            <option value="">Terrain</option>
+                            <option value="">Petite entreprise</option>
+                            <option value="">Prêt personnel (cash)</option>
+                        </select>
+                    </div>
+                    <div class="  flex justify-center items-center ">
+                        <button type="button"
+                            class="bg-[#648E54] w-40 h-7 mt-7 rounded-2xl text-white font-bold hover:scale-[0.98] flex justify-center items-center"
+                            id="a">continue</button>
+                    </div>
+                </form>
             </div>
-               <div class=" flex flex-col mt-10">
-            <label  for="" class="text-amber-50 ml-26 ">Duree (mois)</label>
-            <input class=" bg-amber-50 w-100 h-10 ml-26" type="number">
-          
+        </section>
+    </div>
+    <div id="info" class="hidden">
+        <section class="flex items-center justify-center flex-col ">
+
+            <h1 class="text-3xl mt-20 font-bold text-white text-center">Les informations</h1>
+            <div class=" bg-[rgba(0,0,0,0.7)] w-150 h-110">
+                <form class="flex flex-col mt-10 ">
+
+
+                    <div class=" gap-3">
+                        <label for="nom" class="text-amber-50 ml-26">Nom</label>
+                        <input id="nom" class=" bg-amber-50 w-100 h-10 ml-25" type="text">
+                    </div>
+
+                    <div class="">
+                        <label for="prenom" class="text-amber-50 ml-26">Prenom</label>
+                        <input id="prenom" class=" bg-amber-50 w-100 h-10 ml-25" type="text">
+                    </div>
+
+
+                    <div class="">
+                        <label for="telephone" class="text-amber-50 ml-26">N° Telephone</label>
+                        <input id="telephone" class=" bg-amber-50 w-100 h-10 ml-25" type="tel">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label for="email" class="text-amber-50 ml-26">E-mail</label>
+                        <input id="email" class=" bg-amber-50 w-100 h-10 ml-25" type="email">
+                    </div>
+
+                    <div class="">
+                        <label for="salaire" class="text-amber-50 ml-26">Votre salaire mensuel</label>
+                        <input id="salaire" class=" bg-amber-50 w-100 h-10 ml-25" type="number">
+                    </div>
+
+                    <div class="items-center justify-center flex">
+                        <button type="button"
+                            class="bg-[#648E54] w-80  h-8 mt-7 rounded-2xl text-white font-bold hover:scale-[0.98]  "
+                            id="b">>
+                            Calculer ma simulation
+                        </button>
+                    </div>
+
+                </form>
             </div>
-               <div class=" flex flex-col mt-10">
-            <label  for="" class="text-amber-50 ml-26 "> (Type de credit )</label>
-            <select class=" bg-amber-50 w-100 h-10 ml-26 font-bold" type="text">
-                <option value=" ">Maison</option>
-                <option value="">Appartement</option>
-                <option value="">Terrain</option>
-                <option value="">Petite entreprise</option>
-                 <option value="">Prêt personnel (cash)</option>
-                </select>
-            </div>
-            <div class="  flex justify-center items-center ">
-            <button class="bg-[#648E54] w-40 h-7 mt-7 rounded-2xl text-white font-bold hover:scale-[0.98] flex justify-center items-center">continue</button>
-            </div>
-        </form>
     </div>
     </section>
-    
+    </div>
+
+<section class="flex items-center justify-center flex-col  " > 
+    <section class="flex items-center justify-center flex-col  " > 
+    <script src="main.js"></script>
 </body>
+
 </html>
