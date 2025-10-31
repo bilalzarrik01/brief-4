@@ -50,7 +50,7 @@ function nnfunc() {
 
     console.log("Mensualité:", mensualite.toFixed(2));
 
-    // --- Décision ---
+    // --- Decision ---
     if (mensualite < salair * 0.4) {
       info.style.display = "none";
       filic.style.display = "block";
@@ -80,11 +80,58 @@ function nnfunc() {
           </div>
         </section>
       `;
+// la facture
+document.getElementById("c").addEventListener("click", () => {
+  // hide
+  document.querySelector("header").style.display = "none";
+  document.querySelector("footer").style.display = "none";
+  filic.style.display = "block";
+  filic.classList.remove("hidden");
+  document.body.classList.remove("bg-[url('j.png')]", "bg-no-repeat", "bg-cover");
+  document.body.style.backgroundColor = "#ffffff";
 
-      // Ajouter à nouveau le listener du bouton facture
-      document.getElementById("c").addEventListener("click", () => {
-        alert("📄 Votre facture sera bientôt disponible !");
-      });
+  // facture cntn
+  filic.innerHTML = `
+    <section class="flex flex-col items-center justify-center py-10">
+      <div class="w-[90%] max-w-[700px] border border-gray-300 rounded-md p-10 shadow-md bg-white text-gray-900">
+        <h1 class="text-[#648E54] text-4xl font-extrabold text-center mb-6">GOMoney</h1>
+        <h2 class="text-2xl font-semibold text-center mb-8 border-b border-gray-300 pb-3">Facture de Simulation</h2>
+
+        <div class="space-y-2 mb-6">
+          <p><strong>Type de prêt :</strong> ${typeNom}</p>
+          <p><strong>Montant demandé :</strong> ${Montant.toLocaleString()} DH</p>
+          <p><strong>Taux appliqué :</strong> ${(rate * 100).toFixed(1)}%</p>
+          <p><strong>Durée :</strong> ${duree} mois</p>
+          <p><strong>Mensualité :</strong> ${mensualite.toFixed(2)} DH / mois</p>
+          <p><strong>Total des intérêts :</strong> ${totalInterest.toFixed(2)} DH</p>
+          <p><strong>Montant total à rembourser :</strong> ${totalRepayment.toFixed(2)} DH</p>
+        </div>
+
+        <div class="flex justify-between text-sm text-gray-700 mb-8">
+          <p><strong>Date :</strong> ${new Date().toLocaleDateString()}</p>
+          <p><strong>Référence :</strong> GM-${Math.floor(Math.random() * 1000000)}</p>
+        </div>
+
+        <p class="text-center text-gray-700 mb-10">
+          Merci d’avoir choisi <span class="text-[#648E54] font-semibold">GoMoney</span> pour votre simulation de crédit.
+        </p>
+
+        <div class="flex justify-center gap-4">
+          <button onclick="window.print()" 
+            class="bg-[#648E54] px-8 py-2 rounded-md text-white font-semibold hover:opacity-90">
+            Imprimer la facture
+          </button>
+          <button onclick="window.location.reload()" 
+            class="bg-gray-400 px-8 py-2 rounded-md text-white font-semibold hover:opacity-90">
+            Retour à l'accueil
+          </button>
+        </div>
+      </div>
+    </section>
+  `;
+});
+
+
 
     } else {
       info.style.display = "none";
@@ -92,3 +139,4 @@ function nnfunc() {
     }
   });
 }
+
